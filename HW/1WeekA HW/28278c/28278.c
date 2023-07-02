@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int size[100000];  //크기 지정
+int size[1000000];  //크기 지정
 int cnt = 0;  //스텍에 들어 있는 갯수 확인
 
 void push(int num){  //푸쉬
@@ -24,7 +24,7 @@ void top(){  // 스텍의 탑 값 출력
     if(cnt != 0)
     printf("%d \n", size[cnt - 1]);
     else
-    printf("%d \n", -1);
+    printf("-1 \n");
 }
 
 void Ssize(){ //스텍에 들어 있는 크기 출력
@@ -33,7 +33,7 @@ void Ssize(){ //스텍에 들어 있는 크기 출력
 
 void empty(){ 
     if(cnt != 0)
-        printf("%d \n",size[cnt -1]);
+        printf("0 \n");
     else
         printf("1 \n");
 }
