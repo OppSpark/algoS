@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-int size[100000];
-int cnt = 0;
+int size[100000];  //크기 지정
+int cnt = 0;  //스텍에 들어 있는 갯수 확인
 
-void push(int num){
+void push(int num){  //푸쉬
     size[cnt] = num;
     cnt ++;
 }
 
-void pop(){
+void pop(){  //팝
     if(cnt != 0){
         cnt --;
         printf("%d \n", size[cnt]);
@@ -20,18 +20,18 @@ void pop(){
 
 }
 
-void top(){
+void top(){  // 스텍의 탑 값 출력
     if(cnt != 0)
     printf("%d \n", size[cnt - 1]);
     else
     printf("%d \n", -1);
 }
 
-void Ssize(){
+void Ssize(){ //스텍에 들어 있는 크기 출력
     printf("%d \n", cnt);
 }
 
-void empty(){
+void empty(){ 
     if(cnt != 0)
         printf("0 \n");
     else
@@ -39,18 +39,18 @@ void empty(){
 }
 
 int main(void){
-    int line;
-    char stack[10];
+    int line; //입력할 라인 수 성정
+    char stack[10];  // 문자열에 쓰이는 배열 생성 
 
-    scanf("%d", &line);
+    scanf("%d", &line);  //라인 수 입력
 
-    int number[1000];
+    int number[1000];  //스텍 배열 크기 설정
 
-    for(int i = 0; i < line; i++){
-        scanf("%s", stack);
-        if(strcmp(stack, "push") == 0){
+    for(int i = 0; i < line; i++){  //반복 횟수
+        scanf("%s", stack); //문자 입력
+        if(strcmp(stack, "push") == 0){  
             int num;;
-            scanf("%d", &num);
+            scanf("%d", &num);  //스텍에 푸쉬할 때 입력할 값
             push(num);
         }
         else if(strcmp(stack, "pop") == 0) 
