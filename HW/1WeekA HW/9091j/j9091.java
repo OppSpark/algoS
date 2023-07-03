@@ -8,7 +8,7 @@ public class j9091 {
 	        int num = sc.nextInt();
 	        int tf = 1;
 
-	        for(int i = 2; i <= num ; i++){
+	        for(int i = 2; i <= num ; i++){ 
 	            if(num % i == 0){
 	                tf = 0;
 

@@ -1,18 +1,368 @@
-10828.cS스택을 이용한 문제로  한 방향에서 삽입 삭제가 진행되기에 1차원 배열을 이용해 문제를 풀었다.의사 코드 구현Push[stack ] = data;Pop [stack --]Size = print(count)Top print[stack]Empty if(stack != 0) = print(0) , else(stack == 0) = pirnt(1);Int main(void){scan(line)for(I = 0 ; I < line; i ++){scan(stack)if stack(push) = push = push[]if stack(top) = top if stack(size) = size = size[]if empty(empty = empty = empty[]}코드 구현#include <stdio.h> #include <stdlib.h>#include <string.h>int size[100000];  //크기 지정int cnt = 0;  //스텍에 들어 있는 갯수 확인void push(int num){  //푸쉬    size[cnt] = num;    cnt ++;}void pop(){  //팝    if(cnt != 0){        cnt --;        printf("%d \n", size[cnt]);    }    else        printf("%d \n", -1);}void top(){  // 스텍의 탑 값 출력    if(cnt != 0)    printf("%d \n", size[cnt - 1]);    else    printf("%d \n", -1);}void Ssize(){ //스텍에 들어 있는 크기 출력    printf("%d \n", cnt);}void empty(){     if(cnt != 0)        printf("0 \n");    else        printf("1 \n");}int main(void){    int line; //입력할 라인 수 성정    char stack[10];  // 문자열에 쓰이는 배열 생성     scanf("%d", &line);  //라인 수 입력    int number[1000];  //스텍 배열 크기 설정    for(int i = 0; i < line; i++){  //반복 횟수        scanf("%s", stack); //문자 입력        if(strcmp(stack, "push") == 0){              int num;;            scanf("%d", &num);  //스텍에 푸쉬할 때 입력할 값            push(num);        }        else if(strcmp(stack, "pop") == 0)             pop();        else if (strcmp(stack, "top") == 0)            top();        else if (strcmp(stack, "size") == 0)            Ssize();        else if (strcmp(stack, "empty") == 0)        empty();   } return 0;}
+10828.cS
+
+스택을 이용한 문제로  한 방향에서 삽입 삭제가 진행되기에 1차원 배열을 이용해 문제를 풀었다.
+
+의사 코드 구현
+Push[stack ] = data;
+Pop [stack --]
+Size = print(count)
+Top print[stack]
+Empty if(stack != 0) = print(0) , else(stack == 0) = pirnt(1);
+
+
+Int main(void){
+scan(line)
+
+for(I = 0 ; I < line; i ++){
+
+scan(stack)
+
+if stack(push) = push = push[]
+if stack(top) = top 
+if stack(size) = size = size[]
+if empty(empty = empty = empty[]
+}
 
 
 
+코드 구현
+#include <stdio.h> 
+#include <stdlib.h>
+#include <string.h>
+
+int size[100000];  //크기 지정
+int cnt = 0;  //스텍에 들어 있는 갯수 확인
+
+void push(int num){  //푸쉬
+    size[cnt] = num;
+    cnt ++;
+}
+
+void pop(){  //팝
+    if(cnt != 0){
+        cnt --;
+        printf("%d \n", size[cnt]);
+    }
+    else
+        printf("%d \n", -1);
+
+}
+
+void top(){  // 스텍의 탑 값 출력
+    if(cnt != 0)
+    printf("%d \n", size[cnt - 1]);
+    else
+    printf("%d \n", -1);
+}
+
+void Ssize(){ //스텍에 들어 있는 크기 출력
+    printf("%d \n", cnt);
+}
+
+void empty(){ 
+    if(cnt != 0)
+        printf("0 \n");
+    else
+        printf("1 \n");
+}
+
+int main(void){
+    int line; //입력할 라인 수 성정
+    char stack[10];  // 문자열에 쓰이는 배열 생성 
+
+    scanf("%d", &line);  //라인 수 입력
+
+    int number[1000];  //스텍 배열 크기 설정
+
+    for(int i = 0; i < line; i++){  //반복 횟수
+        scanf("%s", stack); //문자 입력
+        if(strcmp(stack, "push") == 0){  
+            int num;;
+            scanf("%d", &num);  //스텍에 푸쉬할 때 입력할 값
+            push(num);
+        }
+        else if(strcmp(stack, "pop") == 0) 
+            pop();
+        else if (strcmp(stack, "top") == 0)
+            top();
+        else if (strcmp(stack, "size") == 0)
+            Ssize();
+        else if (strcmp(stack, "empty") == 0)
+        empty();
+
+   
+} return 0;
+}
+
+
+1929.c
+
+아스토스테네스의 체 문제로 중첩 for 문을 이용해 배열에서 소수가 아닌 것을 지우고
+소수만 출력한다
+
+의사 코드 구현
+
+배열 생성 
+
+Scan(n1 , n2)
+
+
+소수가 아닌 수 제거
+for(I = 2; i <= m2 ; i++)   
+	for( j = 2; I * j ; j++)
+		arry[i*j] = 1;  소수가 아닌 수에 1 표시
+
+츨력
+For(I = n1; i <= m2 ; i++)       n1 에서 n2 까지 반복
+	If(array[i] == 0)    배열값이 0이면 프린트
+		Print(i);
+
+
+코드 구현
+#include<stdio.h>
+
+int main(void){
+    int n1, n2, n3;
+    int arry[1000000];
+    scanf("%d %d", &n1, &n2);
+
+    arry[1] = 1;
+    
+    for(int i = 2; i <= n2; i++){  //핵심 알고리즘  
+        for(int j = 2; i * j <= n2; j ++)
+            arry[i*j] = 1;
+    }
+
+    for(int i = n1; i <= n2; i++){   //출력
+        if(arry[i] == 0)
+            printf("%d\n",i);
+    }
+    return 0;
+}
+
+
+28278.c
+스텍 문제로 스텍에 값을 입 출력 할 때 배열을 사용하였다.
+
+
+의사 코드 
+배열 생성
+
+1. 
+Push = size[cnt] = number;
+Cnt ++
+2.  Pop = if(count != 0) {
+Count --;
+출력 배열 값
+3. Size = 배열 Top of state 출력
+4. Empty = 
+If(count != 0) 출력 0
+else 출력 1
+5. If(count != 0) 출력 배열 값
+Else 출력 -1
+
+
+코드 구현
+#include <stdio.h> 
+#include <string.h>
+
+int size[1000000];  //크기 지정
+int cnt = 0;  //스텍에 들어 있는 갯수 확인
+
+void push(int num){  //푸쉬
+    size[cnt] = num;
+    cnt ++;
+}
+
+void pop(){  //팝
+    if(cnt != 0){
+        cnt --;
+        printf("%d \n", size[cnt]);
+    }
+    else
+        printf("%d \n", -1);
+
+}
+
+void top(){  // 스텍의 탑 값 출력
+    if(cnt != 0)
+    printf("%d \n", size[cnt - 1]);
+    else
+    printf("-1 \n");
+}
+
+void Ssize(){ //스텍에 들어 있는 크기 출력
+    printf("%d \n", cnt);
+}
+
+void empty(){ 
+    if(cnt != 0)
+        printf("0 \n");
+    else
+        printf("1 \n");
+}
+
+int main(void){
+    int line; //입력할 라인 수 성정
+    char stack[10];  // 문자열에 쓰이는 배열 생성 
+
+    scanf("%d", &line);  //라인 수 입력
+
+    int number[1000];  //스텍 배열 크기 설정
+
+    for(int i = 0; i < line; i++){  //반복 횟수
+        scanf("%s", stack); //문자 입력
+        if(strcmp(stack, "1") == 0){  
+            int num;;
+            scanf("%d", &num);  //스텍에 푸쉬할 때 입력할 값
+            push(num);
+        }
+        else if(strcmp(stack, "2") == 0) 
+            pop();
+        else if (strcmp(stack, "5") == 0)
+            top();
+        else if (strcmp(stack, "3") == 0)
+            Ssize();
+        else if (strcmp(stack, "4") == 0)
+        empty();
+
+   
+} return 0;
+}
+
+
+J27323.java
+
+기하 문제
+
+정수 A, B가 주어지고 세로 길이가 A, 가로 길이가 B 직사각형 넓이를 구하는 문제이다.
+스캐너를 이용해  a ,b 값을 입력 받고
+곱해서 출력한다.
+
+의사 코드 표현
+Scan(a, b)
+
+Print(a * b )
+
+
+실제 코드
+import java.util.Scanner;
+
+public class j27323{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        int a, b;
+
+        a = sc.nextInt();
+        b = sc.nextInt();
+
+        System.out.print(a * b);
+
+    }
+}
 
 
 
-1929.c아스토스테네스의 체 문제로 중첩 for 문을 이용해 배열에서 소수가 아닌 것을 지우고소수만 출력한다의사 코드 구현배열 생성 Scan(n1 , n2)소수가 아닌 수 제거for(I = 2; i <= m2 ; i++)   	for( j = 2; I * j ; j++)		arry[i*j] = 1;  소수가 아닌 수에 1 표시츨력For(I = n1; i <= m2 ; i++)       n1 에서 n2 까지 반복	If(array[i] == 0)    배열값이 0이면 프린트		Print(i);코드 구현#include<stdio.h>int main(void){    int n1, n2, n3;    int arry[1000000];    scanf("%d %d", &n1, &n2);    arry[1] = 1;        for(int i = 2; i <= n2; i++){  //핵심 알고리즘          for(int j = 2; i * j <= n2; j ++)            arry[i*j] = 1;    }    for(int i = n1; i <= n2; i++){   //출력        if(arry[i] == 0)            printf("%d\n",i);    }    return 0;}
-28278.c스텍 문제로 스텍에 값을 입 출력 할 때 배열을 사용하였다.의사 코드 배열 생성1. Push = size[cnt] = number;Cnt ++2.  Pop = if(count != 0) {Count --;출력 배열 값3. Size = 배열 Top of state 출력4. Empty = If(count != 0) 출력 0else 출력 15. If(count != 0) 출력 배열 값Else 출력 -1코드 구현#include <stdio.h> #include <string.h>int size[1000000];  //크기 지정int cnt = 0;  //스텍에 들어 있는 갯수 확인void push(int num){  //푸쉬    size[cnt] = num;    cnt ++;}void pop(){  //팝    if(cnt != 0){        cnt --;        printf("%d \n", size[cnt]);    }    else        printf("%d \n", -1);}void top(){  // 스텍의 탑 값 출력    if(cnt != 0)    printf("%d \n", size[cnt - 1]);    else    printf("-1 \n");}void Ssize(){ //스텍에 들어 있는 크기 출력    printf("%d \n", cnt);}void empty(){     if(cnt != 0)        printf("0 \n");    else        printf("1 \n");}int main(void){    int line; //입력할 라인 수 성정    char stack[10];  // 문자열에 쓰이는 배열 생성     scanf("%d", &line);  //라인 수 입력    int number[1000];  //스텍 배열 크기 설정    for(int i = 0; i < line; i++){  //반복 횟수        scanf("%s", stack); //문자 입력        if(strcmp(stack, "1") == 0){              int num;;            scanf("%d", &num);  //스텍에 푸쉬할 때 입력할 값            push(num);        }        else if(strcmp(stack, "2") == 0)             pop();        else if (strcmp(stack, "5") == 0)            top();        else if (strcmp(stack, "3") == 0)            Ssize();        else if (strcmp(stack, "4") == 0)        empty();   } return 0;}
+J9091.java
+
+소수를 구하기 위해서 2 부터 입력 받은 값 까지 1씩 증가해 나누어 떨어지는 횟수를 보면 소수인지 아닌지 판정할 수 있다.
+
+이를 의사 코드로 표현 하면
+
+
+Scan(num)
+
+For(int I = 2; I <= num ; i++)     
+	If(num % 1 == 0){       /// 
+		tf = 0;
 
 
 
+코드 구현
+
+
+import java.util.Scanner;
+public class j9091 {
+
+    public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            int num = sc.nextInt();   //입력
+            int tf = 1;  //소수인지 아닌지 판정 하는 문법
+
+            for(int i = 2; i <= num ; i++){  //소수 구현 코드
+                if(num % i == 0){
+                    tf = 0;
+
+                }
+                break;
+            }
+            
+            if(tf == 1)
+                System.out.printf( "YES");
+            else
+                System.out.printf( "NO");
+
+    }
+
+}
 
 
 
+J10773.java
 
-J27323.java기하 문제정수 A, B가 주어지고 세로 길이가 A, 가로 길이가 B 직사각형 넓이를 구하는 문제이다.스캐너를 이용해  a ,b 값을 입력 받고곱해서 출력한다.의사 코드 표현Scan(a, b)Print(a * b )실제 코드import java.util.Scanner;public class j27323{    public static void main(String[] args){        Scanner sc = new Scanner(System.in);        int a, b;        a = sc.nextInt();        b = sc.nextInt();        System.out.print(a * b);    }}
-J9091.java소수를 구하기 위해서 2 부터 입력 받은 값 까지 1씩 증가해 나누어 떨어지는 횟수를 보면 소수인지 아닌지 판정할 수 있다.이를 의사 코드로 표현 하면Scan(num)For(int I = 2; I <= num ; i++)     	If(num % 1 == 0){       /// 		tf = 0;코드 구현import java.util.Scanner;public class j9091 {    public static void main(String[] args) {            Scanner sc = new Scanner(System.in);            int num = sc.nextInt();   //입력            int tf = 1;  //소수인지 아닌지 판정 하는 문법            for(int i = 2; i <= num ; i++){  //소수 구현 코드                if(num % i == 0){                    tf = 0;                }                break;            }                        if(tf == 1)                System.out.printf( "YES");            else                System.out.printf( "NO");    }}
+자바의 stack 선언문을 이용해 풀었다.
+0이 아닌숫자가 입력 된다면 push 하고 0이 입력 된다면 pop 한다.
+
+의사 코드 구현
+
+Scan(num)
+
+If( num == 0);  
+	Stack.pop();
+Else
+	Stack.push(num)
+
+
+While(stack.empty != true){
+	Sum += stack.peek
+	Stack.pop
+}
+Print(sum)
+
+
+자바 코드로 구현
+
+import java.util.Scanner;
+import java.util.Stack;  //스텍 유틸
+public class j10733 {
+    public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    Stack<Integer> stack = new Stack<>();  // 스택 선언문
+
+    int ww = sc.nextInt(); //반복 횟수
+
+    int pushnum = 0;
+    int sum = 0;
+
+    for(int i = 1; i <= ww ; i++) {  //스텍 반복 횟수
+
+    pushnum = sc.nextInt();  // 스텍에 넣을 값 입력문
+
+    if(pushnum == 0)  // 입력 받은 값이 0 이면 면 팝
+        stack.pop();
+    else
+        stack.push(pushnum); //입력 받은 값이 0이 아니기에 스텍에 푸쉬
+    }
+    
+    while(stack.isEmpty() != true){  // 스텍이 Empty일때 까지 반복
+        sum += stack.peek(); //스텍 TOS값을 불러와 sum에 더한다
+        stack.pop();  //스텟 TOS값 제거
+    }
+
+    System.out.println(sum); //출력
+
+}
+}
+
