@@ -1,7 +1,7 @@
-package HW.j10733;
+package HW.j10773;
 import java.util.Scanner;
 import java.util.Stack;  //스텍 유틸
-public class j10733 {
+public class j10773 {
     public static void main(String[] args){
     Scanner sc = new Scanner(System.in);
     Stack<Integer> stack = new Stack<>();  // 스택 선언문

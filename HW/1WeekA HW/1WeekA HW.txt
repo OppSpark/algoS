@@ -3,29 +3,54 @@
 스택을 이용한 문제로  한 방향에서 삽입 삭제가 진행되기에 1차원 배열을 이용해 문제를 풀었다.
 
 의사 코드 구현
-Push[stack ] = data;
-Pop [stack --]
-Size = print(count)
-Top print[stack]
-Empty if(stack != 0) = print(0) , else(stack == 0) = pirnt(1);
 
 
-Int main(void){
-scan(line)
+push(stack)  //스텍 입력
+	size[cnt] = stack;  //스텍에 값을 입력
+	cnt ++   //다음 배열
 
-for(I = 0 ; I < line; i ++){
 
-scan(stack)
+pop()  //스텍 팝
+	cnt --;  // 배열에서 뒤로 한칸 뺀다
 
-if stack(push) = push = push[]
-if stack(top) = top 
-if stack(size) = size = size[]
-if empty(empty = empty = empty[]
+
+
+size()
+	return cnt;  //cnt가 스텍(배열)의 크기임으로 cnt를 출력
+
+
+void empty()		//cnt가 스텍(배열)의 값임으로 cnt 가 0 이면 스텍은 NULL, 0이 아니면 스텍에 값이 있음
+	if(cnt != 0)  return 0;
+	else(cnt == 0)  return 1;
+
+
+mian(){
+	int size[100000] // 
+	int cnt = 0;  //
+
+
+	scan(line)  // 입력 받는 수 
+
+	for(I = 0 ; I < line; i ++){   
+	scan(stack) //스텍 입력값
+
+	if(strcmp(stack, push) == 0);
+		push(stack)
+	elseif(strcmp(stack, pop) == 0);
+		pop()
+	elseif(strcmp(stack, size) == 0);
+		size()
+	else(strcmp(stack, empty) == 0);
+		empty()
+
+
 }
 
 
 
+
 코드 구현
+
 #include <stdio.h> 
 #include <stdlib.h>
 #include <string.h>
@@ -95,6 +120,15 @@ int main(void){
 }
 
 
+
+
+
+
+
+
+
+
+
 1929.c
 
 아스토스테네스의 체 문제로 중첩 for 문을 이용해 배열에서 소수가 아닌 것을 지우고
@@ -102,20 +136,21 @@ int main(void){
 
 의사 코드 구현
 
-배열 생성 
 
-Scan(n1 , n2)
+int arry[100000]  // 배열 생성
+
+scan(n1 , n2)
 
 
-소수가 아닌 수 제거
-for(I = 2; i <= m2 ; i++)   
-	for( j = 2; I * j ; j++)
-		arry[i*j] = 1;  소수가 아닌 수에 1 표시
 
-츨력
-For(I = n1; i <= m2 ; i++)       n1 에서 n2 까지 반복
-	If(array[i] == 0)    배열값이 0이면 프린트
-		Print(i);
+for(i = 2; i <= n2 ; i++)   //소수가 아닌 수 제거 
+	for(j = 2; I * j ; j++)
+		arry[i*j] = 1; //  소수가 아닌 수에 1 표시
+
+
+for(I = n1; i <= n2 ; i++)     //  출력하는 반복문  n1 에서 n2 까지 반복
+	If(arry[i] == 0)   // 배열값이 0이면 프린트
+		print(i);
 
 
 코드 구현
@@ -141,8 +176,17 @@ int main(void){
 }
 
 
+
+
+
+
+
+
+
+
+
 28278.c
-스텍 문제로 스텍에 값을 입 출력 할 때 배열을 사용하였다.
+스텍 문제로 스텍에 값을 입/출력 할 때 배열을 사용하였다.
 
 
 의사 코드 
@@ -231,6 +275,17 @@ int main(void){
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
 J27323.java
 
 기하 문제
@@ -240,9 +295,9 @@ J27323.java
 곱해서 출력한다.
 
 의사 코드 표현
-Scan(a, b)
+scan(a, b)  // 값 2개를 입력 받음.
 
-Print(a * b )
+print(a * b )  // 사각형의 넓이 구하는 공식은 가로 * 세로 임으로 a*b 하고 출력
 
 
 실제 코드
@@ -264,6 +319,17 @@ public class j27323{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 J9091.java
 
 소수를 구하기 위해서 2 부터 입력 받은 값 까지 1씩 증가해 나누어 떨어지는 횟수를 보면 소수인지 아닌지 판정할 수 있다.
@@ -271,11 +337,16 @@ J9091.java
 이를 의사 코드로 표현 하면
 
 
-Scan(num)
+scan(num)
 
-For(int I = 2; I <= num ; i++)     
-	If(num % 1 == 0){       /// 
+for(int i = 2; I <= num ; i++)   //소수를 판별하는 공식은 2 부터 입력 받은 값 까지 N 번 나눈다.
+	if(num % 1 == 0){       //N번 나눈 값이 나누어지면 소수가 아니고, 나눠지지 않으면 소수이다.
 		tf = 0;
+
+if( tf == 1 )
+	print(소수)
+else(tf == 0)
+	print(소수 아님)
 
 
 
@@ -310,26 +381,45 @@ public class j9091 {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 J10773.java
 
 자바의 stack 선언문을 이용해 풀었다.
 0이 아닌숫자가 입력 된다면 push 하고 0이 입력 된다면 pop 한다.
 
+
 의사 코드 구현
+import java.util.Stack  // 스텍 선언문
 
-Scan(num)
+int sum // 스텍의 합 변수
 
-If( num == 0);  
+scan(num)  // 스텍에 넣을 입력 값
+
+
+if( num == 0);   // 입력 받은 값이 0 이면 스텍에서 pop 실행
 	Stack.pop();
-Else
+else  // 0이 아니면 스텍에 입력 받은 값음 push
 	Stack.push(num)
 
 
-While(stack.empty != true){
-	Sum += stack.peek
-	Stack.pop
+While(stack.empty != true){   // 출력 하는 반복문  스텍에 empty가 될때까지 반복
+	Sum += stack.peek   // 스텍TOS 값을 SUM에 더하기
+	Stack.pop 	// 스텍 TOS값을 삭제
 }
-Print(sum)
+Print(sum)  // 출력
+
+
+
 
 
 자바 코드로 구현
@@ -365,4 +455,3 @@ public class j10733 {
 
 }
 }
-
