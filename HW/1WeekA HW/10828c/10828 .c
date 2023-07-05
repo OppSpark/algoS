@@ -62,6 +62,5 @@ int main(void){
         else if (strcmp(stack, "empty") == 0)
         empty();
 
-   
+
 } return 0;
-}
