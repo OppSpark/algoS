@@ -15,7 +15,7 @@ public class j11659 {
 
         for(int i = 1 ; i < py; i++){
             arry[i] = sc.nextInt();
-            arry[i] += arry[i - 1];
+            arry[i] += ary[i - 1];
         }
 
         for(int j = 0; j < line; j++){
