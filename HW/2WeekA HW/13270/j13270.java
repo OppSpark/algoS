@@ -19,9 +19,7 @@ public class j13270 {
             }
         b += a;
         a = b - a;
-    }
-
+        }
         System.out.println(ary[h][0]+" "+ ary[h][1]);
     }
-     
 }

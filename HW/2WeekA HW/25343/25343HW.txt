@@ -1,20 +1,44 @@
+25343번
+
+1.
+2차원 배열에서 최장 증가 부분 수열을 구하는 문제다.
+LIS 알고리즘을 이용해 문제를 풀면되나.
+문제는 2차원 배열이기에 2차원 배열을 사용해서 푼다.
+
+2. 
+
+scan a = 배열 가로 새로
+
+for(i = 1 ; i <= a; i++){
+	for( j = 1; j <= a; j++){
+		h = 0;
+	for(k = 1; k <= a; k++){
+		for(l = 1; ; <=  j; l++)
+			if(arry[k][l] < arry[i[][j] && hc < arry2[k][l])
+				h = arry2[k][l]
+	}	}
+
+	arry2[i][j] = h+ 1;
+	if(arry2[i][j] > cnt)
+		cnt ararry2[i][j] 
+
+}
+}
+print (cnt)
+
 import java.util.*;
 public class j25343 {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-
         int ar = sc.nextInt();
-
         int arry[][] = new int [ar + 1][ar + 1];
         int arry2[][] = new int [ar + 1 ][ar +1];
         int cnt = 0;
-
         for(int i = 1; i <= ar; i++){
             for(int j = 1; j <= ar; j++){
                 arry[i][j] = sc.nextInt();
             }
         }
-
         for(int i = 1; i <= ar; i++){
             for(int j = 1; j <= ar; j++){
                 int hc = 0;

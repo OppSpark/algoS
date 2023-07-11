@@ -1,0 +1,56 @@
+13270번
+
+피보나치 수열을 응용한 문제로
+사람과 치킨의 마리 수 는 피보나치 수열을 이룬다,
+
+구간에서 최소값, 최대값을 구하는 문법은
+while문에 비교 함수를 이용해 배열 2개를 생성해 비교후 비교해서 큰 값을 선정
+
+출력시 피보나치 문장을 구현한다.
+
+2 슈도 코드 구현
+
+int a = 1
+int b = 2
+
+배열 생성 후 값 입력
+
+while(b <= j) {
+	for(i = b; i <= h; i ++){
+		arry[i][0] = max(arry[i][0] > arry[i - b][0] + a ? arry[i][0] : arry[i - b][0] + a);
+		arry[i][1] = min(arry[i][1]  > arry[i - b][1] + a ?arry[i][1]  : arry[i - b][1] + a);
+		}
+	b += a;
+	a = b - a;
+	}
+	print(배열 , 배열)
+}
+
+
+코드 구현 
+
+import java.util.*;
+public class j13270 {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int ary[][] = new int [10000][2];
+
+        int h = sc.nextInt();
+        int a = 1;
+        int b = 2;
+
+        for(int i = 1; i <= h; i++)
+            ary[i][0] = 100000;
+
+        while(b <= h){
+            for(int i = b; i <= h; i++){
+                ary[i][0] = Math.min(ary[i][0], ary[i - b][0] + a);
+                ary[i][1] = Math.max(ary[i][1], ary[i - b][1] + a);
+            }
+        b += a;
+        a = b - a;
+        }
+        System.out.println(ary[h][0]+" "+ ary[h][1]);
+    }
+}
+
