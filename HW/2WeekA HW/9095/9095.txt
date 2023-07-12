@@ -1,0 +1,85 @@
+9095
+
+문제 규칙을 찾을 때
+1은
+1
+1가지
+2는
+1+ 1
+2
+2가지
+3은
+1+1+1
+1+2
+2+1
+3
+4가지
+
+4는
+1+1+1+1
+1+2+1
+1+1+1
+2+1+1
+2+2
+3+1
+1+3
+7가지.
+.
+.
+.
+
+규칙으로 이루어진다.
+
+수식화 하면
+dp[n] = dp[n-3] + dp[n-2] + dp[n-1]
+
+이다
+
+
+
+의사 코드 표현
+
+dp[1] = 1
+dp[2] = 2
+dp[3] = 4
+
+for i in 4.. 10{
+	  for i in 4...10 {
+       dp[i] = dpi - 1] + dp[i - 2] + dp[i - 3]
+    }
+반복문{
+출력 print(arry[number -1])
+}
+
+
+코드 구현 C
+
+#include<stdio.h>
+int main(void){
+    
+    int arry[11];
+    int cnt;
+    int number;
+
+    scanf("%d",&cnt);
+
+    arry[0] = 1;
+    arry[1] = 2;
+    arry[2] = 4;
+
+    for(int i = 1;  i <= cnt; i++){
+        scanf("%d", &number);
+
+        for(int j = 3; j < number; j++){
+            arry[j] = arry[j - 1] + arry[j - 2] + arry[j - 3];
+        }
+        
+        printf("%d \n",arry[number - 1]);
+
+    }
+
+    return 0;
+}
+
+
+
