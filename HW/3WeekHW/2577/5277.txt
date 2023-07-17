@@ -1,0 +1,47 @@
+0~9  값 이니 10으로 나누 엇을때 나머지 값을 구해 현제 1의 자리 숫자를 구한다.
+10으로 나누어 값을 다음 번 숫자 자리로 이동
+
+
+의사 코드 구현
+
+while(sum >0) 을 이용해 숫자가 0이 될때 까지 구현
+num = sum % 10 dmfh 1의 자리 숫자를 num에 넣어 값을 구함
+
+scan( a, b, c )
+
+sum - a * b * c
+
+while( sum > 0)
+	num - sum % 10
+	arry[num] ++
+	sum /= 10;
+
+반복분을 이용해 배열값 출력]’
+
+
+
+c코드 구현
+#include<stdio.h>
+int main(void){
+    int a, b ,c;
+    int sum;
+    int arry[10] = {0, };
+
+    int n;
+
+    scanf("%d %d %d",&a, &b, &c);
+    sum = a * b * c;
+
+    while(sum > 0){
+        n = sum % 10;
+
+        arry[n]++;
+
+        sum /= 10;
+    }
+
+    for(int i = 0; i <= 9; i++){
+        printf("%d \n", arry[i]);
+    }
+    return 0;
+}

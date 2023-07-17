@@ -1,0 +1,51 @@
+1654번
+
+랜선의 길이를 구하는 문제다.
+
+이분 탐색을 이용해 문제를 풀 수 있다.
+
+가잘 짧은 랜선을 시작 위치, 가장 긴 랜선을 끝 위치로 설정하고 
+이분 탐색이 끝날 때 까지 while 문을 이용해 푼다.
+
+시작 위치, 끝 위치의 중간 값을 만들고 제귀 반복 하다보면
+시작위치와 끝 위치가 같아진다.
+
+
+의사 코드 표현
+
+while 시작 <= 끝 
+	중간 값 = (시작 + 끝 )
+	랜선 수 = 
+	for( i in 랜선 수
+		랜선수 += i // 중간 값
+	if 랜선 수 >= N
+		시작 값 = 중간값 + 1
+	else
+	 	끝 값 = 중간 값 - 1;
+
+출력 (끝 값)
+
+
+
+
+코드 구현 파이썬
+
+
+import sys
+K, N = map(int, input().split())  # 수 입력
+
+lan = [int(sys.stdin.readline()) for _ in range(K)] # 길이
+
+s, e = 1, max(lan)  #처음 끝위치 설정
+
+while s <= e: # 길이를 찾는 알고리즘
+    mid = (s + e) // 2 
+    lines = 0 #랜선 수
+    for i in lan:
+        lines += i // mid 
+        
+    if lines >= N: 
+        s = mid + 1
+    else:
+        e = mid - 1
+print(e)

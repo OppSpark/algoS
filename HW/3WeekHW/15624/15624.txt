@@ -1,0 +1,45 @@
+피보나치와 나머지를 이용해서 푸는 문제이다
+입력 값이 커지면 피보나치 수가 커져 나머지로 값을 구해 int 범위를 벗어나지 않게 하는 것이다.
+fib(n) = (fib(n-1) + fib(n-2)) % 1000000007
+코드를 이용하면 된다.
+
+
+의사 코드 구현
+
+scan(number)
+
+int arry[] = [1000001] // 배열 생성
+
+arry[0] = 0
+arry[1] = 1
+arry[2] = 0 
+//배열의 초기값 지정
+
+
+for i in 2 <= number
+	arry[i] = arry[i] = (arry[i - 1] + arry[i-2]) % 1000000007
+
+
+print(arry[number])
+
+
+
+코드 구현 -스위프트
+
+
+import Foundation
+
+let number = Int(readLine()!)!
+
+var arry: [Int] = [1000001]
+
+arry = [0, 1, 0]
+
+for i in 2...number{
+
+    arry.insert((arry[i - 1] + arry[i-2]) % 1000000007, at: i )
+
+}
+
+print(arry[number])
+

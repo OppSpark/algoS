@@ -1,0 +1,64 @@
+배열 합치기 문제
+정렬되어있는 두 배열 A와 B가 주어진다. 두 배열을 합친 다음 정렬해서 출력한다.
+
+이 문제는 분할 정복과, 투포인터 방식으로 풀 수 있다.
+
+투포인터 방식은
+하나의 포인터 시작점 A와
+또 다른 포인터 시작점 B의 시작점에 둔다.
+
+두개를 비교해서 작은 것이 존재하면 그것을 넣고 다음 인덱스로 포인터를 옮긴다.
+만약 두개의 포인터가 가리키는 값이 같다면 둘 다 넣고 포인터를 다음 인덱스로 넘긴다
+
+
+
+슈도 코드 구현
+
+배열 2개 생성
+
+
+
+while true
+    if arr1[ai] <= arr2[bi]:          // 1번 값을 크다면 1번 값 넣고 옆으로 이동
+        printt.append(arr1[ai])
+        ai += 1
+    else:			      // 2번 값이 크면 2번 값을 넣고 한칸 이동
+        printt.append(arr2[bi])
+        bi += 1
+    if ai == N or bi == M:            // 탈출 문
+        printt += arr1[ai:] + arr2[bi:]
+        break
+
+
+print;
+
+
+
+코드 구현
+
+
+import sys
+input = sys.stdin.readline
+
+N, M = map(int, input().split())
+
+arr1 = list(map(int, input().split()))
+arr2 = list(map(int, input().split()))
+
+ai = 0
+bi = 0
+
+printt = []
+
+while 1:
+    if arr1[ai] <= arr2[bi]:
+        printt.append(arr1[ai])
+        ai += 1
+    else:
+        printt.append(arr2[bi])
+        bi += 1
+    if ai == N or bi == M:
+        printt += arr1[ai:] + arr2[bi:]
+        break
+
+print(*printt)
