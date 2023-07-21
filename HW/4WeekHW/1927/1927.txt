@@ -1,0 +1,51 @@
+제목 처럼 최소 힙을 이용하면 풀 수있다.
+하지만 다른 풀이 입력을 받고 sort를 해서 문제를 풀면 시간 초과가 나온다.
+파이썬의 최소힙 (heapq)를 이용해서 문제를 풀었다.
+
+의사 코드 구현
+for _ in range(num)
+    scan(입력값)
+    if 입력값 == 0
+        힙영역의 초소값을 출력 후 삭제
+    else
+        힙 영역에 "입력값"을 넣는다.
+
+파이썬 코드 구현
+import sys
+import heapq
+
+input = sys.stdin.readline
+num = int(input())
+h = []
+
+for _ in range(num):
+    x = int(input())
+    if x == 0:
+        if not h:
+            print(0)
+        else:
+            print(heapq.heappop(h))
+    else:
+        heapq.heappush(h, x)
+
+
+
+
+스위프트 코드구현   // 작동 안됨
+import Foundation
+
+let num = Int(readLine()!)!
+var push = 0
+var arry = [Int]()
+
+
+for _ in 1...num{
+    push = Int(readLine()!)!
+    if push != 0{
+        arry.append(push)
+    }
+    else{
+        arry.sort(by: >)
+        print(arry.popLast())
+    }
+}

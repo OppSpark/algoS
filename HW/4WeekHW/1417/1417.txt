@@ -1,0 +1,57 @@
+이 문제는 우선순위 큐를 사용해서 푸는 문제임
+
+후보자 수를 입력 받고 각각 후보자를 입력 받아 리스트로 만든다.
+그다음 다솜의 투표와 다른 후보자 사람 수를 비교하고
+다솜이를 투표한 사람이 많다면 비교를 멈춘다.
+
+의사코드 구현
+
+배열생성 v[]
+
+scanf(후보)
+
+for _ in 0...num - 2{   //값 입력 받고 내림 차순 정렬
+    v.append(scan)
+}
+v.sort(by: >)
+
+
+
+e //표가 많은 사람 매수하는 알고리즘
+    while v[0] >= h1{
+        h1++
+        v[0]--
+        cnt++
+        v.sort(by : >)  //내림 차순 정렬
+
+
+
+
+
+코드 구현 스위프트
+
+import Foundation
+
+let num = Int(readLine()!)! //후보 수
+var h1 = Int(readLine()!)! // 1찍남
+var v = [Int](repeating: 0, count: 101) // 2찍남
+
+var cnt = 0 // 매수하는 수
+
+for _ in 0...num - 2{   //값 입력 받고 내림 차순 정렬
+    v.append(Int(readLine()!)!)
+}
+    v.sort(by: >)
+
+if num == 1{
+    print(0)
+}
+else{  //표가 많은 사람 매수하는 알고리즘
+    while v[0] >= h1{
+        h1 += 1
+        v[0] -= 1
+        cnt += 1
+        v.sort(by : >)
+    }
+    print(cnt)
+}

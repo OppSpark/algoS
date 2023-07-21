@@ -1,0 +1,102 @@
+트리를 생성하고
+전위순회 중위순회 후위순회를 하여 출력하는 문제다.
+C언에에서 구조체를 이용해 문제를 푸었다.
+참고로 
+전위순회란 루트 노드드 방문 후 왼쪽에서 오른쪽으로 방문하는 것
+중위순회란
+왼쪽 노드 방문 후 루트노드, 오른쪽 노드 순서로 방문
+후위순회랑
+왼쪽 방문 오른쪽 방문 루트노드 방문하는 순회다.
+
+
+의사 코드 구현
+
+a,b,c 입력 받음
+bc를 각각 왼쪽 오른족으로 집어 넣음
+
+전위 순회 구현
+윈쪽, 오른쪽 방문 후 중간 값 출력
+
+중위 순회 구현
+왼쪽, 중간, 오른쪽 순서로 방문
+
+후위 순회 구현
+중간값 출력 후 왼쪽 오른쪽 순서
+
+cCdoe 구현
+
+#include<stdio.h>
+#include<stdlib.h>
+
+
+void post(char tree);
+
+void in(char tree);
+
+void pre(char tree);
+
+int j = 0;
+typedef struct Node{
+
+    char left, right;
+}Node;
+
+Node arry[101];
+
+void post(char tree){
+    if(tree == ',')
+        return;
+    else{
+        post(arry[tree].left);
+        printf("%c", tree);
+        post(arry[tree].right);
+
+
+    }
+}
+
+void in(char tree){
+    if(tree == '.')
+        return;
+    else{
+        in(arry[tree].left);
+        printf("%c",tree);
+        in(arry[tree].right);
+    }
+}
+
+void pre(char tree){
+    if(tree == '.')
+        return;
+    else{
+        printf("%c",tree);
+        in(arry[tree].left);
+        in(arry[tree].right);
+    }
+}
+
+
+
+int main(void){
+    int te;
+
+    char d1, d2, d3;
+
+    scanf("%d", &te);
+
+    for(int i = 0; i < te; i++){
+        scanf("%c %c %c", &d1, &d2, &d3);
+        arry[d1].left = d2;
+        arry[d1].right = d3;
+    }
+    pre('A');
+    printf("\n");
+    in('A');
+    printf("\n");
+    post('A');
+    printf("\n");
+
+    return 0;
+}
+    
+    
