@@ -1,0 +1,23 @@
+N개의 정수 A[1], A[2], …, A[N]이 주어져 있을 때
+이 안에 X라는 정수가 존재하는지 알아내는 알아내는 문제이다.
+
+의사 코드 밑 해석
+swift언어를 사용하였음
+set 자료형에 값을 넣어주고
+for문과 if문을 이용해 출력할 때
+ contains 메소드를 사용해 해당 값이 존제하는지 안존재 하는지 판단 후 출력함.
+
+ 코드 구현
+import Foundation
+
+let n = Int(readLine()!)!
+let a = Set(readLine()!.split(separator: " ").map { Int($0)! })
+let m = Int(readLine()!)!
+let b = readLine()!.split(separator: " ").map { Int($0)! }
+
+b.forEach {
+    print(a.contains($0) ? 1 : 0)
+}
+
+
+
