@@ -1,0 +1,41 @@
+이진 탐색 트리를 구현하고 값을 입력 받은 후 후위 순회를 사용하여 푸는 문제다.
+
+의사 코드 구현
+이진 탐색트리를 배열로 표현해 값을 입력 받는다.
+시작값과 끝 값을 지정하고
+시작값+1 ~ 끝값 까지 반복문을 돌면서 시작값이 탐색값을 만족 할때, 시작값+1 ~ 해당ㅂ갓 -1은 
+왼쪽 서브트리의 범위에 지정하고
+해당값 ~ 끝값은 은 오른쪽 서브트리 범위로 지정함
+탐색후 배열을 출력 시키면 후위 순회 결과가 됨
+
+
+코드 구현 c언어
+#include <stdio.h>
+#include <stdlib.h>
+
+int arr[1];   // 배열로 표현
+int i;
+
+void post(int start, int end){ 
+	if(start>=end) return;
+	
+	for(i=start+1;i<end;i++)
+		if(arr[start]<arr[i]) break;
+	
+	post(start+1,i);
+	post(i,end);
+	printf("%d\n",arr[start]);
+	
+	return;
+}
+
+int main(){
+	int n = 0,x;
+	
+	while(scanf("%d",&x)!=EOF)
+		arr[n++] = x;
+	
+	post(0,n);
+	
+	return 0;
+}
