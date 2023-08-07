@@ -1,0 +1,31 @@
+1 N-Qeen 문제다
+N-Queen 문제는 크기가 N × N인 체스판 위에 퀸 N개를 서로 공격할 수 없게 놓는 문제이다.
+
+백트래킹을 활용하여 문제를 푸는 방식이다.
+재귀 함수를 이용해 하나의 값을 처음부터 끝까지 탐색하고 탐색 한 곳에 탐색이 성공하면 배치 후 
+cnt 값을 1++ 한다
+
+
+코드로 구현
+#include<stdio.h>
+
+int N, cnt = 0, que[20], check;
+int abs(int a) {
+    return a>=0?a:-a;
+}
+
+void search(int num) {
+    if(num == N+1) cnt++;
+    for(int i=1; i<=N; i++) {
+        que[num] = i;
+        check = 1;
+        for(int j=1; j<num; j++) if(i == que[j] || abs(i-que[j]) == num-j) check = 0;
+        if(check) search(num+1);
+    }
+}
+
+int main() {
+    scanf("%d", &N);
+    search(1);
+    printf("%d", cnt);
+}
