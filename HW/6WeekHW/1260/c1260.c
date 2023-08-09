@@ -13,7 +13,7 @@ void DFS (int v, int N) {
 	
 
 	for (int d = 1; d <= N; d++) {
-		if (!vi[d] && mx[v][d]) {  //이 노드가 방문한지 아닌지 판멸하는 것
+		if (!vi[d] && mx[v][d]) {  //이 
 			DFS(d, N);
 		}
 	}
