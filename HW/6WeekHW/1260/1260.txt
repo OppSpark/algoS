@@ -1,0 +1,170 @@
+1. 문제 풀이 방법
+그래프를 DFS로 탐색한 결과와 BFS로 탐색한 결과를 출력하는 프로그램을 작성하라
+단, 방문할 수 있는 정점이 여러 개인 경우에는 정점 번호가 작은 것을 먼저 방문하고, 더 이상 방문할 수 있는 점이 없는 경우 종료한다. 정점 번호는 1번부터 N번까지이다.
+이다
+
+DFS와 BFS를 이용하면 문제를 풀 수 있다.
+DFS의 경우 노드에서 인접 노드를 계속 방문 후 만약 방문 할 곳이 없다면 뒤로 돌아온다.
+방문한 곳에 표시를 해서 이 노드가 방문한 노드인지 아닌지 판별하는 변수를 쓰고
+뒤로 돌아갈땐 스텍을 이용해 하나씩 뺀다.
+
+BFS의 도 인접행렬이나 인접 리스트를 사용해 구연 가능함
+2차원 배영을 통해 인접 노드를 표시하고 방문함
+마찬가지로 방문한곳은 표시하고 되돌아갈때 판멸함
+
+
+의사코드 표시
+
+
+
+
+
+DFS구현
+
+void DFS (int v, int N) { 
+
+	printf("%d ", v);  //방문한곳 출력하는 문장
+	
+	
+	vi[v] = 1;// 해당 노드를 방문 표시
+	
+
+	for (int d = 1; d <= N; d++) { 
+		if (!vi[d] && mx[v][d]) {  //이 노드가 방문한지 아닌지 판별후 후진할지 정함 직진할지 정함
+			DFS(d, N);
+		}
+	}
+}
+
+
+
+
+BFS구현
+void BFS (int v, int N) {
+	
+	int front = -1, r = -1;   //변수 선언 BFS를 큐 로 구현함
+	int queue[MAX * MAX] = { 0 };
+	
+	r++;
+	queue[r] = v;
+	
+	
+	vi[v] = 1; // 해당 노드방문 표시
+	
+
+	printf("%d ", v);  //출력
+	
+	
+	while (front < r) {  //bfs 코드
+		
+		front++;  //프론트에 1 더하고 출력
+		int nextV = queue[front];
+		
+		
+		for (int d = 1; d <= N; d++) {  //인접리스트 획인
+
+			if (!vi[d] && mx[nextV][d]) {  //마찬가지로 해당 노드 출력학지 후진할지 정함
+				r++;
+				vi[d] = 1;
+				queue[r] = d;
+				
+				printf("%d ", d);
+			}
+		}
+
+
+    
+	}
+}
+
+
+코드 구현 C
+#include <stdio.h>
+#define MAX 1001
+
+int mx[MAX][MAX];
+int vi[MAX * MAX]; //방문 표시하는거
+
+void DFS (int v, int N) {
+
+	printf("%d ", v);
+	
+	
+	vi[v] = 1;// 방문 표시
+	
+
+	for (int d = 1; d <= N; d++) {
+		if (!vi[d] && mx[v][d]) {  //이 노드가 방문한지 아닌지 판멸하는 것
+			DFS(d, N);
+		}
+	}
+}
+
+
+
+void BFS (int v, int N) {
+	
+	int front = -1, r = -1;
+	int queue[MAX * MAX] = { 0 };
+	
+	r++;
+	queue[r] = v;
+	
+	// 방문 표시
+	vi[v] = 1;
+	
+
+	printf("%d ", v);
+	
+	
+	while (front < r) {  //bfs 코드
+		
+		front++;  //프론트에 1 더하고 출력
+		int nextV = queue[front];
+		
+		
+		for (int d = 1; d <= N; d++) {  //인접리스트 획인
+
+			if (!vi[d] && mx[nextV][d]) {
+				r++;
+				vi[d] = 1;
+				queue[r] = d;
+				
+				printf("%d ", d);
+			}
+		}
+	}
+}
+
+void init (int N) {
+	printf("\n");
+	for (int i = 1; i <= N; i++) {
+		vi[i] = 0;
+	}
+}
+
+int main(void) {
+	int N = 0;
+	int M = 0;
+	int V = 0;
+	
+	scanf("%d %d %d", &N, &M, &V);
+	
+	for (int i = 0; i < M; i++) {
+		int s = 0;
+		int d = 0;
+		
+		scanf("%d %d", &s, &d);
+		
+		mx[s][d] = 1;
+		mx[d][s] = 1;
+	}
+	
+	DFS(V, N);
+	
+	init(N);
+	
+	BFS(V, N);
+	
+	return 0;
+}
