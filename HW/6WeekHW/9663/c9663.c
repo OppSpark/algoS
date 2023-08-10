@@ -6,11 +6,12 @@ int arr(int a) {
 }
 
 void search(int num) {
-    if(num == N+1) cnt++;
+    if(num == N+1)
+        cnt++;
     for(int i=1; i<=N; i++) {
         que[num] = i;
         check = 1;
-        for(int j=1; j<num; j++) if(i == que[j] || arr(i-que[j]) == num-j) check = 0;
+        for(int j=1; j<num; j++) if(i == que[j] || arr(i-que[j]) == num - j) check = 0;
         if(check) search(num+1);
     }
 }

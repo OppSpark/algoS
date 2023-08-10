@@ -1,0 +1,131 @@
+적녹 색약 문제 이다
+
+기존 4색 문제에서 난이도를 낮춰 2색 문제라 볼 수 있다.
+
+이 문제는 그레프 이론과 BFS,DFS를 사용하여 풀 수 있다.
+
+인접 행렬 DFS를 이용해 문제를 풀었음
+
+
+의사코드 구현
+
+인접 행렬 생성
+ for (int i = 0; i < N; i++) {
+            String s = sc.next();
+
+            for (int j = 0; j < N; j++) {
+                graph[i + 1][j + 1] = s.charAt(j);
+    }
+}
+
+색을 구하는 알고리즘
+ int count = 0;
+        for (int i = 1; i < N + 1; i++) {  /  탐색하는 알고리즘
+            for (int j = 1; j < N + 1; j++) {
+                if (!vi[i][j]) { //방문 노드 표시
+                    dfs(i, j);
+                    count++;
+        }
+    }
+
+}
+
+적녹색약으 경우 위 코드에서
+ if (graph[i][j] == 'G') {
+        graph[i][j] = 'R';
+ }
+ 이렇게 바꾸면 된다.
+
+
+
+구현 자바
+            
+import java.util.*;
+
+public class j10026 {
+    static char[][] graph; 
+    static int N;
+    static boolean[][] vi;
+
+    
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        N = sc.nextInt();
+
+        graph = new char[N + 1][N + 1];
+        vi = new boolean[N + 1][N + 1];
+
+        // 인접행렬 생성
+        for (int i = 0; i < N; i++) {
+            String s = sc.next();
+
+            for (int j = 0; j < N; j++) {
+                graph[i + 1][j + 1] = s.charAt(j);
+            }
+        }
+
+        String result = "";
+
+        // 적록색약이 아닌 사람의 경우 
+        int count = 0;
+        for (int i = 1; i < N + 1; i++) {
+            for (int j = 1; j < N + 1; j++) {
+                if (!vi[i][j]) {
+                    dfs(i, j);
+                    count++;
+                }
+            }
+        }
+
+        result = count + " ";
+
+        ///적록색약인 사람의 경우 : 빨강, 초록이 같은 색상 
+        // 초록을 빨강으로 변경함. G -> R 
+        for (int i = 1; i < N + 1; i++) {
+            for (int j = 1; j < N + 1; j++) {
+                if (graph[i][j] == 'G') {
+                    graph[i][j] = 'R';
+                }
+            }
+        }
+
+        count = 0; // 초기화
+        vi = new boolean[N + 1][N + 1]; // 초기화
+
+        for (int i = 1; i < N + 1; i++) {
+            for (int j = 1; j < N + 1; j++) {
+                if (!vi[i][j]) {
+                    dfs(i, j);
+                    count++;
+                }
+            }
+        }
+
+        result += count;
+
+        System.out.println(result);
+    }
+
+    static void dfs(int x, int y) {
+        vi[x][y] = true;
+
+        int[] dx = new int[]{0, -1, 0, 1};
+        int[] dy = new int[]{1, 0, -1, 0};
+
+        for (int i = 0; i < 4; i++) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+
+            if (nx > 0 && ny > 0 && nx < N + 1 && ny < N + 1) {
+                // 같은 색은 같은 구역으로 본다, count 가 증가되지 않는다 
+                if (graph[x][y] == graph[nx][ny]) {
+                    if (!vi[nx][ny]) {
+                        dfs(nx, ny);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -7,11 +7,11 @@ typedef struct queuq
 }queuq;
 
 int n, m, cnt;
-int map[105][105];
+int map[105][105]; //맵에 입력 받음
 
 int fr, rr;
 
-int vi[105][105];
+int vi[105][105];  //방문 표시 하는것
 int dx[4] = {-1, 1, 0, 0}, dy[4] = {0, 0, -1, 1};
 
 queuq q[10005];
@@ -33,14 +33,15 @@ void bfs()
 
 			int nx = q[fr].x + dx[i];
 			int ny = q[fr].y + dy[i];
+            //0.0 q부터 탐색 하기
 			
-			if(nx >= 1 && ny >= 1 && nx <= n && ny <= m){
 
+			if(nx >= 1 && ny >= 1 && nx <= n && ny <= m){//VFS결과가 xy안에 있다연
 
+				if(map[nx][ny] == 1 && vi[nx][ny] == 0){  //반문 노드인지 검사 하는는것
 
-				if(map[nx][ny] == 1 && vi[nx][ny] == 0){
-					push(nx, ny);
-					vi[nx][ny] = vi[q[fr].x][q[fr].y] + 1;
+					push(nx, ny);  //큐에서 받은 결과를 집어넣고
+					vi[nx][ny] = vi[q[fr].x][q[fr].y] + 1;  //다음칸으로 감
 
 
 				}
