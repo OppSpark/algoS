@@ -1,0 +1,83 @@
+백준 1446 문제이다.
+매일 아침, 세준이는 학교에 가기 위해서 차를 타고 D킬로미터 길이의 고속도로를 지난다. 이 고속도로는 심각하게 커브가 많아서 정말 운전하기도 힘들다. 어느 날, 세준이는 이 고속도로에 지름길이 존재한다는 것을 알게 되었다. 모든 지름길은 일방통행이고, 고속도로를 역주행할 수는 없다.
+
+세준이가 운전해야 하는 거리의 최솟값을 출력하시오.
+
+이 문제는 다익스트라를 이용헤 푸는 문제다.
+
+시작 지점에서 1씩 이동하며 각 지점에 다익스트라 처리를 하면 된다.
+
+의사코드 
+1. 1씩 증가하면서 지름길이면 다익스트라 적용
+2. 현재값 갱신
+3. 지름길이 더 작으면 갱신
+
+		for(int i=0; i<=D; i++) {
+			if(i!=0)
+				dp[i]=Math.min(dp[i-1]+1, dp[i]) ;
+			if(list[i].size()>0) {
+				for(int tmp[]: list[i]) {
+					int val = tmp[1];
+					int end = tmp[0];
+					if(dp[end] > dp[i]+val) {
+						dp[end] = dp[i]+val;
+					}
+				}
+			}
+			
+		}
+
+
+
+자바 코드
+
+import java.io.*;
+import java.util.*;
+
+public class j1446 {
+	static List<int[]> list[];
+	static int N, D, res;
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		N=stoi(st.nextToken());
+		D=stoi(st.nextToken());
+		list = new ArrayList[10001];
+		for(int i=0; i<list.length; i++) {
+			list[i]=new ArrayList<>();
+		}
+		res = Integer.MAX_VALUE;
+		for(int i=0; i<N; i++) {
+			st = new StringTokenizer(br.readLine());
+			int a = stoi(st.nextToken());
+			int b = stoi(st.nextToken());
+			int c = stoi(st.nextToken());
+			list[a].add(new int[] {b,c});
+		}
+		int dp[] = new int[10001];
+		init(dp);
+		for(int i=0; i<=D; i++) {
+			if(i!=0)
+				dp[i]=Math.min(dp[i-1]+1, dp[i]) ;
+			if(list[i].size()>0) {
+				for(int tmp[]: list[i]) {
+					int val = tmp[1];
+					int end = tmp[0];
+					if(dp[end] > dp[i]+val) {
+						dp[end] = dp[i]+val;
+					}
+				}
+			}
+			
+		}
+		System.out.println(dp[D]);
+	}
+	static void init(int arr[]) {
+		for(int i=0; i<arr.length; i++) {
+			arr[i]=i;
+		}
+	}
+	static int stoi(String s) {
+		return Integer.valueOf(s);
+	}
+}

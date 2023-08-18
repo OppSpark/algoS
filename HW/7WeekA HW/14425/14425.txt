@@ -1,0 +1,45 @@
+14425번은 문자열 집합에 관련된 문제다.
+총 N개의 문자열로 이루어진 집합 S가 주어진다.
+입력으로 주어지는 M개의 문자열 중에서 집합 S에 포함되어 있는 것이 총 몇 개인지 구하는 문제다.
+
+
+set 자료형과 관련된 메소드를 이용하면 풀 수 있다.
+
+의사코드 구현
+
+int N , M = Arry[0][1]
+
+scnaf(N)
+
+cnt = 0
+
+
+for(i = 0; i < n ; i++)
+    if(M[i] == s)    M개의 줄의 문자열이 실제 S에 있는지 검사하여 있을 경우 cnt__
+        cnt ++    
+
+print(cnt)
+
+
+
+구현
+import Foundation
+
+var ArrayOfNM = readLine()!.split(separator: " ").map { Int(String($0))! }
+var N = ArrayOfNM[0]
+var M = ArrayOfNM[1]
+
+var S = Set<String>()
+
+for _ in 0..<N {
+    S.insert(readLine()!)
+}
+
+var count = 0
+
+for _ in 0..<M {
+    if S.contains(readLine()!) {
+        count += 1
+    }
+}
+print(count)
