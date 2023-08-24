@@ -31,7 +31,7 @@ public class j9020{
             
             while(true) {
                 
-             
+            
                 if(findingPrimeNum[firstPartitian] && findingPrimeNum[secondPartitian]) { 
                     break;
                 }
