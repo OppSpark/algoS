@@ -1,7 +1,6 @@
 import java.util.*;
 import java.io.*;
 public class j9020{
- 
     static StringTokenizer st;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -42,6 +41,5 @@ public class j9020{
         }
         bw.flush();
     }
- 
+
 }
- 
