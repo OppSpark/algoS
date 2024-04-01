@@ -9,4 +9,9 @@ def fibo(n):
 
 fibos = int(input())
 
+if(fibos == 0):
+    print(0)
+    exit()
+    
+
 print(fibo(fibos))
